@@ -1,0 +1,4 @@
+SOURCE = \
+helloFoam.C \
+
+# sources

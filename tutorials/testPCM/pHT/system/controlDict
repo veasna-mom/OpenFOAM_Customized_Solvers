@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+application     PCMbuoyantBoussinesqPimpleFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+endTime         600;          // 19 minutes (The final validation point)
+
+deltaT          0.0001;          // Your stable time step
+
+writeControl    adjustableRunTime;
+
+writeInterval   10;            // Saves every 60 seconds (1 minute)
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+adjustTimeStep  yes;      // Enable automatic time step control
+maxCo           0.2;      // Forces deltaT to shrink if velocity gets too high
+maxAlphaCo      0.2;
+maxDeltaT   1;
+
+
+// ************************************************************************* //
+functions
+{
+    meltFraction
+    {
+        type            volFieldValue;
+        libs            (fieldFunctionObjects);
+        log             true;
+        writeControl    timeStep;
+        writeInterval   40;
+        
+        // --- ADD THESE ENTRIES ---
+        writeFields     false;    // We don't need to write a new volField, just the scalar value
+        regionType      all;      // Apply to the whole domain
+        // -------------------------
+
+        operation       volAverage;
+        fields          (gamma);
+    }
+}

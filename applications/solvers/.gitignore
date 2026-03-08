@@ -1,0 +1,13 @@
+# Compiled files
+*.o
+*.so
+*.log
+
+# OpenFOAM case data
+*.foam
+VTK
+*.dat
+processor*
+
+# Build directories
+build/

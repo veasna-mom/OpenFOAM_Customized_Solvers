@@ -1,0 +1,56 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      transportProperties;
+}
+
+// Transport model
+transportModel  Newtonian;
+
+
+// Kinematic viscosity (nu)
+nu              [0 2 -1 0 0 0 0] 2.97e-7;
+
+
+// Boussinesq approximation parameters
+beta            [0 0 0 -1 0 0 0] 1.2e-4;
+TRef            [0 0 0 1 0 0 0] 302.93;
+
+
+// Prandtl numbers
+Pr              [0 0 0 0 0 0 0] 0.0216;
+Prt             [0 0 0 0 0 0 0] 0.85;
+
+
+// Thermal properties
+Cp              [0 2 -2 -1 0 0 0] 381.5;
+
+
+// Latent heat (enthalpy method)
+hm              [0 2 -2 0 0 0 0] 80160;
+
+// Phase change temperatures
+Tsolid          [0 0 0 1 0 0 0] 302.93;
+Tliquid         [0 0 0 1 0 0 0] 302.94;
+
+
+// Mushy zone temperature range
+Tmr             [0 0 0 1 0 0 0] 0.005;
+
+
+// Mushy zone constants
+Amush           [0 0 -1 0 0 0 0] 1.6e6;
+Epsilon         [0 0 0 0 0 0 0] 0.001;
+
+
+// ************************************************************************* //

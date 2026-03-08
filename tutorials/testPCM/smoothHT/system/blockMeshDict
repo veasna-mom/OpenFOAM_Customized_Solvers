@@ -1,0 +1,82 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  v2412
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+convertToMeters 1;
+
+vertices
+(
+    (0 0 0)          // 0
+    (0.0889 0 0)     // 1
+    (0.0889 0.0635 0)// 2
+    (0 0.0635 0)     // 3
+    (0 0 0.001)      // 4
+    (0.0889 0 0.001) // 5
+    (0.0889 0.0635 0.001) // 6
+    (0 0.0635 0.001) // 7
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (72 52 1) simpleGrading (1 1 1)
+);
+
+edges ();
+
+boundary
+(
+    hotWall
+    {
+        type wall;
+        faces ((0 3 7 4));
+    }
+    coldWall
+    {
+        type wall;
+        faces ((1 2 6 5));
+    }
+    insulatedWalls
+    {
+        type wall;
+        faces 
+        (
+            (0 1 5 4) // Bottom
+            (3 2 6 7) // Top
+        );
+    }
+    frontAndBack
+    {
+        type empty;
+        faces
+        (
+            (0 1 2 3)
+            (4 5 6 7)
+        );
+    }
+);
