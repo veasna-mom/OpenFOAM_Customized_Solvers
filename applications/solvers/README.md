@@ -27,9 +27,9 @@ These implementations are intended for research and educational purposes in **co
 
 The phase change process is modeled using the enthalpy formulation, where the total enthalpy is defined as:
 
-[
+$
 H = h + \Delta H
-]
+$
 
 where
 
@@ -44,9 +44,9 @@ The liquid fraction is used to modify the momentum equations via a **porosity-ba
 
 To avoid numerical instability near the phase interface, a **Gaussian smoothing kernel** is applied to the latent heat source term:
 
-[
+$
 S = L \frac{\partial f_l}{\partial t}
-]
+$
 
 where
 
@@ -57,26 +57,8 @@ The Gaussian kernel smooths the phase transition region and improves solver stab
 
 ---
 
-## Repository Structure
-
-```
-OpenFOAM_PCM_Solver
-│
-├── solvers
-│   ├── PCM_custom_solver
-│   └── modified_energy_solver
-│
-├── formulations
-│   ├── porosity_enthalpy_method
-│   └── gaussian_smoothing
-│
-├── test_cases
-│   └── validation_cases
-│
-└── README.md
-```
-
----
+## Repositories
+I have also add my basic PDE discretization just for the sake of beginners who wish to program in OpenFOAM
 
 ## Installation
 
