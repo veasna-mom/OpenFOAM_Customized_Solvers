@@ -34,7 +34,7 @@ $$
 where
 
 * (h) : sensible heat
-* (\Delta H) : latent heat contribution
+* $$(\Delta H) $$: latent heat contribution
 
 The liquid fraction is used to modify the momentum equations via a **porosity-based damping term** to suppress velocity in solid regions.
 
@@ -44,9 +44,9 @@ The liquid fraction is used to modify the momentum equations via a **porosity-ba
 
 To avoid numerical instability near the phase interface, a **Gaussian smoothing kernel** is applied to the latent heat source term:
 
-$
+$$
 S = L \frac{\partial f_l}{\partial t}
-$
+$$
 
 where
 
