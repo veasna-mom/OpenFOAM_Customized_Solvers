@@ -54,6 +54,9 @@ where
 * (f_l) : liquid fraction
 
 The Gaussian kernel smooths the phase transition region and improves solver stability.
+\begin{equation}
+\gamma = \frac{1}{2} \left[ 1 + \text{erf}\left(\frac{4(T-T_m)}{T_{mr}}\right) \right]
+\end{equation}
 
 ---
 
