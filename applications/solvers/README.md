@@ -58,8 +58,6 @@ $$
 \gamma = \frac{1}{2} \left[ 1 + \text{erf}\left(\frac{4(T-T_m)}{T_{mr}}\right) \right]
 $$
 
----
-
 ## Repositories
 I have also add my basic PDE discretization just for the sake of beginners who wish to program in OpenFOAM
 
