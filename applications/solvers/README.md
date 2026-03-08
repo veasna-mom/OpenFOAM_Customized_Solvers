@@ -27,9 +27,9 @@ These implementations are intended for research and educational purposes in **co
 
 The phase change process is modeled using the enthalpy formulation, where the total enthalpy is defined as:
 
-$
+$$
 H = h + \Delta H
-$
+$$
 
 where
 
