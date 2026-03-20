@@ -114,25 +114,11 @@ $$S_{Darcy} = -A_{mush} \frac{(1-\gamma)^2}{\gamma^3+\epsilon} \mathbf{u}$$
 $$\rho c_p \left( \frac{\partial T}{\partial t} + \mathbf{u}\cdot\nabla T \right) = k\nabla^2 T - \rho L \frac{\partial \gamma}{\partial t}$$
 
 ---
-
-# Numerical Method
-
-The governing equations are solved using the **finite volume method (FVM)** with the following solution procedure:
-
-1. Solve momentum equation
-2. Solve pressure correction (**PISO** algorithm)
-3. Update velocity field
-4. Solve temperature equation
-5. Update liquid fraction $\gamma$
-6. Apply Darcy damping in solid regions
-
----
-
 # Installation
 
 Clone the repository:
 
-``bash
+
 git clone [https://github.com/veasna-mom/OpenFOAM_Customized_Solvers.git](https://github.com/veasna-mom/OpenFOAM_Customized_Solvers.git)
 
 # References
